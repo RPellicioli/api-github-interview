@@ -1,0 +1,111 @@
+@import "./fonts";
+@import "./colors";
+@import "./utils";
+
+button {
+	outline: none;
+}
+
+.button {
+	border-radius: 4px;
+	border: 1px solid transparent;
+	z-index: 1;
+	font-weight: $font-weight-semi-bold;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s;
+	transition-property: color, box-shadow, background-color, border;
+	cursor: pointer;
+
+	.bg-animated{
+		width: 25%;
+		height: 100%;
+		position: absolute;
+		transform: translateY(150%);
+		border-radius: 50%;
+		transition: 0.5s;
+		z-index: -1;
+
+		&:nth-child(1){
+			left: 0;
+			transition-delay: 0s;
+		}
+
+		&:nth-child(2){
+			left: 25%;
+			transition-delay: 0.1s;
+		}
+
+		&:nth-child(3){
+			left: 50%;
+			transition-delay: 0.2s;
+		}
+
+		&:nth-child(4){
+			left: 75%;
+			transition-delay: 0.3s;
+		}		
+
+		&.white{
+			background-color: $white;
+		}
+
+		&.red{
+			background-color: $red;
+		}
+	}
+	
+	&:hover{
+		box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0,0,0,.12);
+
+		.bg-animated{
+			transform: translateY(0) scale(2);
+		}
+	}
+
+	&.bigger{
+		padding: 19px 32px;
+		font-size: 18px;
+	}
+
+	&.medium{
+		font-size: 16px;
+		padding: 10px 30px;
+	}
+
+	&.no-bg{
+		background-color: transparent;
+		color: $grey;
+		font-weight: normal;
+		font-family: $font-montserrat;
+
+		&:hover{
+			color: $smoke;
+			box-shadow: none;
+		}
+	}
+	
+	&.cyan {
+		font-size: 18px;
+		background: $cyan;
+		color: $black;
+
+		&:hover{
+			color: $cyan;
+		}
+	}
+	
+	&.outline-red{
+		color: $red;
+		border: 1px solid $red;
+		background-color: transparent;
+
+		&:hover{
+			color: $white;
+			background-color: transparent;
+		}
+	}
+}

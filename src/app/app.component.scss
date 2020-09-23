@@ -1,0 +1,25 @@
+@import "src/styles/fonts";
+@import "src/styles/colors";
+@import "src/styles/utils";
+
+:host{
+    .page-body{
+        height: calc(100vh - 72px);
+        grid-template-columns: 260px 1fr;
+        grid-gap: 0;
+        display: grid;
+        position: relative;
+        
+        ::ng-deep menu{
+            width: 10%;
+            min-width: 257px;
+            height: 100%;
+            margin: 0px;
+            padding: 8px;
+        }
+
+        .content{
+            flex: 1;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<section class="menu" [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
+    <div class="top">
+        <a [routerLink]="'/' + galleryBuilderUrl" class="button cyan bigger">
+            Novo
+    
+            <span *ngFor="let i of [1,2,3,4]" class="bg-animated white"></span>
+        </a>    
+    
+        <ul>
+            <li *ngFor="let nav of navigations">
+                <a [routerLink]="'/' + nav.url" routerLinkActive="active">
+                    <mat-icon>{{nav.icon}}</mat-icon>
+                    <span>{{nav.title}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>

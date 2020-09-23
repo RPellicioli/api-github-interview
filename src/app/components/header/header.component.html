@@ -1,0 +1,16 @@
+<header [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
+    <a [routerLink]="['/']">
+        <img src="../../../assets/images/logo.png" class="logo" alt="GitHub" />
+    </a>
+
+    <div class="wrap-actions">
+        <div class="search">
+            <input name="search" placeholder="Escreva aqui o que você procura" />
+            <mat-icon>search</mat-icon>
+        </div>
+
+        <mat-slide-toggle [checked]="globalService.darkMode" (change)="onChangeDarkMode()">
+            Dark mode
+        </mat-slide-toggle>
+    </div>
+</header>

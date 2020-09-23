@@ -1,0 +1,83 @@
+@import "./fonts";
+@import "./colors";
+@import "./utils";
+
+.common-form {
+  position: relative;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+    span {
+      font-size: 14px;
+      color: $smoke;
+      margin-bottom: 15px;
+    }
+
+    mat-icon{
+      position: absolute;
+      right: 15px;
+      bottom: 12px;
+    }
+
+    mat-datepicker-toggle{
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+    }
+  }
+
+  mat-radio-group{
+    display: flex;
+    flex-direction: column;
+
+    mat-radio-button:not(:last-child){
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+}
+
+input,
+select,
+mat-select {
+  outline: none;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background-color: $black;
+  font-size: 16px;
+  font-family: $font-montserrat;
+  color: $smoke;
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+
+  &::placeholder {
+    color: $medium-grey;
+    font-family: $font-montserrat;
+  }
+
+  &.has-icon{
+    padding-right: 55px;
+  }
+}

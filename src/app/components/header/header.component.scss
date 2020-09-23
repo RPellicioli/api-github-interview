@@ -1,0 +1,108 @@
+@import "src/styles/fonts";
+@import "src/styles/colors";
+@import "src/styles/utils";
+
+:host{
+    header{
+        width: 100%;
+        height: 72px;
+        padding: 0 48px;
+        background: $black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 1s ease background;
+
+        .logo{
+            width: 140px;
+        }
+
+        .wrap-actions{
+            display: flex;
+            align-items: center;
+            
+            .search{
+                margin-right: 36px;
+                position: relative;
+                
+                input{
+                    width: 400px;
+                    height: 40px;
+                    padding: 0px 40px 0px 16px;
+                    font-size: 16px;
+                    border: 0;
+                    border-radius: 30px;
+                    background: $dark-grey;
+                    color: $medium-grey;
+                    outline: none;
+                    transition: 1s ease;
+                    transition-property: background, color;
+                }
+                input::placeholder{
+                    font-family: 'Montserrat';
+                }
+
+                mat-icon{
+                    top: 50%;
+                    right: 16px;
+                    transform: translateY(-50%);
+                    color: $white;
+                    transition: 1s ease;
+                    transition-property: background, color;
+                    position: absolute;
+                    cursor: pointer;
+                }
+            }
+
+            .notifications-icon{
+                cursor: default;
+            }
+
+            .logged{
+                height: 40px;
+                margin-left: 12px;
+                padding: 4px;
+                border-radius: 30px;
+                background: $dark-grey;
+                display: flex;
+                align-items: center;
+                transition: 1s ease;
+                transition-property: background;
+                cursor: default;
+
+                > img{
+                    width: 32px;
+                    height: 32px;
+                    margin-right: 8px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                mat-icon{
+                    margin: 0px 4px 0px 12px;
+                }
+            }
+        }
+
+        &.lighter-mode{
+            background: $dark-grey;
+            
+            .wrap-actions{
+                .search{
+                    input{
+                        background: $white;
+                        color: $black;
+                    }
+
+                    mat-icon{
+                        color: $black;
+                    }
+                }
+
+                mat-slide-toggle{
+                    color: $white;
+                }
+            }
+        }
+    }
+}

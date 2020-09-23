@@ -1,0 +1,11 @@
+<main [ngClass]="{ 'lighter-mode': !globalService.darkMode }" #main>
+    <app-header></app-header>
+
+    <section class="page-body">
+        <menu></menu>
+
+        <section class="content">
+            <router-outlet #routerOutlet="outlet"></router-outlet>
+        </section>
+    </section>
+</main>
