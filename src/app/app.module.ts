@@ -53,7 +53,7 @@ export const commonRoutes: Routes = [
         matcherPath: [ptBrUrls.Starred.Url, esPyUrls.Starred.Url, enUsUrls.Starred.Url],
         loadChildren: () => import('./pages/starred/starred.module').then(m => m.StarredModule)
     },
-    { path: '**', loadChildren: () => import('./pages/repos/repos.module').then(m => m.ReposModule) }
+    { path: '**', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) }
 ];
 
 export function appInitializer(seoService: SEOService, globalService: GlobalService) {

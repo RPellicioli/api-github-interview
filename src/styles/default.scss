@@ -49,6 +49,34 @@ a{
     color: $smoke;
 }
 
+.default-view-container {
+  width: 100%;
+  padding: 0 12%;
+  margin: 0px auto;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 1660px) {
+  .default-view-container{
+    padding: 0 48px;
+    max-width: 1366px;
+  }
+}
+@media only screen and (max-width: 1366px) {
+  .default-view-container{
+    padding: 0 112px;
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .default-view-container{
+    padding: 0 24px;
+  }
+}
+@media only screen and (max-width: $mobile-width) {
+  .default-view-container{
+    padding: 0 16px;
+  }
+}
+
 .disable-pointer-events,
 .disable-pointer-events *,
 .disable-pointer-events ::ng-deep,

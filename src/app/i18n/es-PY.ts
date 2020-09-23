@@ -4,6 +4,10 @@ export const locale = {
         Header: {
             Search: "Buscar"
         },
+        Home: {
+            Title: "Bem vindo à Github Api",
+            Description: ""
+        },
         URLs: {
             Repos: {
                 Description: "Repositórios",
