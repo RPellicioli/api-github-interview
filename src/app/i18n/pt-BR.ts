@@ -2,7 +2,7 @@ export const locale = {
     lang: 'pt-BR',
     data: {
         Header: {
-            Search: "Buscar usuário"
+            Search: "Buscar"
         },
         Home: {
             Title: "Bem vindo à Github Api",
