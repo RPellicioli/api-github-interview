@@ -2,11 +2,11 @@ export const locale = {
     lang: 'pt-BR',
     data: {
         Header: {
-            Search: "Buscar"
+            Search: "Buscar usuário"
         },
         Home: {
             Title: "Bem vindo à Github Api",
-            Description: "Busque em nossa plataforma usuários cadastrados no Github, seus respectivos repositórios e projetos favoritos."
+            Description: "Busque em nossa plataforma usuários cadastrados no Github, trazendo seus respectivos repositórios e projetos favoritos."
         },
         URLs: {
             Repos: {
