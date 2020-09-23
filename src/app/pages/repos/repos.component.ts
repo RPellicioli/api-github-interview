@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiUsersService } from 'app/services/api/api-users.service';
 
 @Component({
     selector: 'repos',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReposComponent implements OnInit {
 
-    constructor() { }
+    constructor(
+        private apiUsersService: ApiUsersService
+    ) { }
 
-    public ngOnInit(): void {
+    public async ngOnInit(): Promise<void> {
+        const user = await this.apiUsersService.getUser("RPellicioli");
+
+        console.log(user);
     }
 }

@@ -1,10 +1,17 @@
 export const locale = {
     lang: 'en-US',
     data: {
+        Header: {
+            Search: "Search"
+        },
         URLs: {
             Repos: {
-                Description: "Repositórios",
-                Url: "repositorios"
+                Description: "Repositories",
+                Url: "repositories"
+            },
+            Starred: {
+                Description: "Starred",
+                Url: "starred"
             }
         }
     }

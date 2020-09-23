@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from "environments/environment";
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import { UrlHelper } from 'app/utils/url-helpers';
 
 @Injectable()
 export abstract class ApiBase {
@@ -9,7 +8,7 @@ export abstract class ApiBase {
     protected apiBaseUrl: string;
 
     constructor(protected httpClient: HttpClient) {
-        this.apiBaseUrl = UrlHelper.combine(environment.apiUrl, 'api');
+        this.apiBaseUrl = environment.apiUrl;
     }
 
     protected get<TResult>(path: string, options?: ApiBase.Options): Promise<TResult> {
@@ -88,7 +87,7 @@ export abstract class ApiBase {
         }
     }
 
-    protected buildHeader(auth: boolean = true): { [header: string]: string | string[] } {
+    protected buildHeader(auth: boolean = false): { [header: string]: string | string[] } {
         var headers: any = {
             'Accept-Language': 'pt-BR'
         };

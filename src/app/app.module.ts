@@ -48,6 +48,11 @@ export const commonRoutes: Routes = [
         matcherPath: [ptBrUrls.Repos.Url, esPyUrls.Repos.Url, enUsUrls.Repos.Url],
         loadChildren: () => import('./pages/repos/repos.module').then(m => m.ReposModule)
     },
+    <Route>{
+        matcher: CaseInsensitiveMatcher.matcher,
+        matcherPath: [ptBrUrls.Starred.Url, esPyUrls.Starred.Url, enUsUrls.Starred.Url],
+        loadChildren: () => import('./pages/starred/starred.module').then(m => m.StarredModule)
+    },
     { path: '**', loadChildren: () => import('./pages/repos/repos.module').then(m => m.ReposModule) }
 ];
 

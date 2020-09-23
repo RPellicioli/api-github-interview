@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
-import { ApiReposService } from './api-respos.service';
+import { ApiUsersService } from './api-users.service';
 
 @NgModule({
     imports: [
@@ -8,7 +8,7 @@ import { ApiReposService } from './api-respos.service';
         HttpClientJsonpModule
     ],
     providers: [
-        ApiReposService
+        ApiUsersService
     ]
 })
 export class ApiModule { }
