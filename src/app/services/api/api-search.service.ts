@@ -5,7 +5,11 @@ import { ApiBase } from './api-base';
 export class ApiSearchService extends ApiBase {
     protected routePath: string = "search";
 
-    public getUsers(query: string): Promise<any> {
-        return super.get<any>(`users?q=${query}`);
+    public getUsers(q: string): Promise<any> {
+        return super.get<any>(`users?q=${q}`);
+    }
+
+    public getRepositories(q: string): Promise<any> {
+        return super.get<any>(`repositories?q=${q}`);
     }
 }
