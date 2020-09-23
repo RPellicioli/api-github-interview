@@ -1,6 +1,14 @@
 <header [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
     <a [routerLink]="['/']">
-        <img src="../../../assets/images/logo.png" class="logo" alt="GitHub" />
+        <picture *ngIf="!globalService.darkMode">
+            <source type="image/webp" srcset="../../../assets/images/logo.webp">
+            <img src="../../../assets/images/logo.png" class="logo" alt="GitHub" />
+        </picture>
+
+        <picture *ngIf="globalService.darkMode">
+            <source type="image/webp" srcset="../../../assets/images/logo-white.webp">
+            <img src="../../../assets/images/logo-white.png" class="logo" alt="GitHub" />
+        </picture>
     </a>
 
     <div class="wrap-actions">
