@@ -23,6 +23,7 @@ import { locale as localeEsPy } from './i18n/es-PY';
 import { TranslationLoaderService } from './services/translation-loader.service';
 import { CultureService } from './services/culture.service';
 import { CaseInsensitiveMatcher } from './utils/case-insensitive-matcher';
+import { SearchService } from './services/search.service';
 
 const ptBrUrls = localePtBr.data.URLs,
     esPyUrls = localeEsPy.data.URLs,
@@ -52,6 +53,11 @@ export const commonRoutes: Routes = [
         matcher: CaseInsensitiveMatcher.matcher,
         matcherPath: [ptBrUrls.Starred.Url, esPyUrls.Starred.Url, enUsUrls.Starred.Url],
         loadChildren: () => import('./pages/starred/starred.module').then(m => m.StarredModule)
+    },
+    <Route>{
+        matcher: CaseInsensitiveMatcher.matcher,
+        matcherPath: [ptBrUrls.Results.Url, esPyUrls.Results.Url, enUsUrls.Results.Url],
+        loadChildren: () => import('./pages/results/results.module').then(m => m.ResultsModule)
     },
     { path: '**', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) }
 ];
@@ -90,6 +96,7 @@ export function appInitializer(seoService: SEOService, globalService: GlobalServ
         WindowScrollService,
         GlobalService,
         SEOService,
+        SearchService,
         TranslationLoaderService,
         CultureService,
         { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },

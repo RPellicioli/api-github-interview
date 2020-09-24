@@ -13,8 +13,6 @@ export class ReposComponent implements OnInit {
     ) { }
 
     public async ngOnInit(): Promise<void> {
-        const user = await this.apiUsersService.getUser("RPellicioli");
 
-        console.log(user);
     }
 }

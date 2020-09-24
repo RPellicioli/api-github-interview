@@ -1,0 +1,30 @@
+@import "src/styles/fonts";
+@import "src/styles/colors";
+@import "src/styles/utils";
+
+:host{
+    .results{
+        height: 100%;
+        
+        .default-view-container{
+            height: 100%;
+            padding-top: 32px;
+            padding-bottom: 32px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 36px;
+            display: grid;
+
+            .card{
+                height: 83vh;
+            }
+
+            ::ng-deep list-items{
+                .list{
+                    margin-top: 24px;
+                    max-height: 90%;
+                    overflow-y: auto;
+                }
+            }
+        }
+    }
+}

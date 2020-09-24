@@ -6,9 +6,17 @@ export const locale = {
         },
         Home: {
             Title: "Welcome to Github Api",
-            Description: "Search our platform for users registered on Github, their respective repositories and favorite projects."
+            Description: "Search our platform of registered users on Github, repositories and favorite projects of each user."
+        },
+        Results: {
+            Users: "Usuários",
+            Repos: "Repositórios"
         },
         URLs: {
+            Results: {
+                Description: "Results",
+                Url: "search"
+            },
             Repos: {
                 Description: "Repositories",
                 Url: "repositories"

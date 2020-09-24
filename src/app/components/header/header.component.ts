@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalService } from 'app/services/global.service';
+import { SearchService } from 'app/services/search.service';
 
 @Component({
     selector: 'app-header',
@@ -12,7 +14,9 @@ export class HeaderComponent implements OnInit {
 
     constructor(
         public globalService: GlobalService,
-        public translateService: TranslateService
+        public translateService: TranslateService,
+        public searchService: SearchService,
+        public router: Router
     ) { }
 
     public ngOnInit(): void {
@@ -21,5 +25,9 @@ export class HeaderComponent implements OnInit {
 
     public onChangeDarkMode(): void {
         this.globalService.darkMode = !this.globalService.darkMode;
+    }
+
+    public callSearch(): void {
+		this.router.navigate([this.translateService.instant('URLs.Results.Url')], { queryParams: { q: this.searchService.query } });
     }
 }

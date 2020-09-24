@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -12,7 +13,9 @@ import { TranslateModule } from '@ngx-translate/core';
         TranslateModule,
         RouterModule,
         MatIconModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     exports: [
         HeaderComponent

@@ -8,7 +8,15 @@ export const locale = {
             Title: "Bem vindo à Github Api",
             Description: ""
         },
+        Results: {
+            Users: "Usuários",
+            Repos: "Repositórios"
+        },
         URLs: {
+            Results: {
+                Description: "Resultado",
+                Url: "busca"
+            },
             Repos: {
                 Description: "Repositórios",
                 Url: "repositorios"

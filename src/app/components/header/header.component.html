@@ -13,8 +13,8 @@
 
     <div class="wrap-actions">
         <div class="search">
-            <input name="search" [placeholder]="placeholder" />
-            <mat-icon>search</mat-icon>
+            <input name="search" [(ngModel)]="searchService.query" (keyup.enter)="callSearch()" [placeholder]="placeholder" />
+            <mat-icon (click)="callSearch()">search</mat-icon>
         </div>
 
         <mat-slide-toggle [checked]="globalService.darkMode" (change)="onChangeDarkMode()">

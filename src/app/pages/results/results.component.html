@@ -1,0 +1,19 @@
+<section class="results">
+    <div class="default-view-container">
+        <div class="card" [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
+            <h3 class="title">
+                {{ 'Results.Users' | translate }}
+            </h3>
+    
+            <list-items [items]="users"></list-items>
+        </div>
+    
+        <div class="card" [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
+            <h3 class="title">
+                {{ 'Results.Repos' | translate }}
+            </h3>
+    
+            <list-items [items]="repositories"></list-items>
+        </div>
+    </div>
+</section>
