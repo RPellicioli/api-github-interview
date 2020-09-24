@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ListItemsComponent } from 'app/components/list-items/list-items.component';
 import { ApiSearchService } from 'app/services/api/api-search.service';
 import { GlobalService } from 'app/services/global.service';
 import { SearchService } from 'app/services/search.service';
@@ -10,6 +11,7 @@ import { SearchService } from 'app/services/search.service';
     styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent implements OnInit {
+    public types = ListItemsComponent.Type;
     public users: any[];
     public repositories: any[];
 
@@ -17,7 +19,7 @@ export class ResultsComponent implements OnInit {
         public globalService: GlobalService,
         public searchSerivce: SearchService,
         public apiSearchService: ApiSearchService,
-        private router: ActivatedRoute,
+        private router: ActivatedRoute
     ) {
         this.router.queryParams.subscribe( async queryParams => {
             this.searchSerivce.query = queryParams['q'];

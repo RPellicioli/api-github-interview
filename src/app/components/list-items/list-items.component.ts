@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Type } from '@angular/core';
 import { GlobalService } from 'app/services/global.service';
 
 @Component({
@@ -7,7 +7,10 @@ import { GlobalService } from 'app/services/global.service';
     styleUrls: ['./list-items.component.scss']
 })
 export class ListItemsComponent implements OnInit {
+    @Input() public type: ListItemsComponent.Type;
     @Input() public items: any[] = [];
+
+    public types = ListItemsComponent.Type;
 
     constructor(
         public globalService: GlobalService
@@ -15,5 +18,12 @@ export class ListItemsComponent implements OnInit {
 
     public ngOnInit(): void {
 
+    }
+}
+
+export namespace ListItemsComponent {
+    export enum Type {
+        User,
+        Repository
     }
 }

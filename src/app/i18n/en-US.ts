@@ -1,6 +1,9 @@
 export const locale = {
     lang: 'en-US',
     data: {
+        General: {
+            EmptyMessage: "No information found."
+        },
         Header: {
             Search: "Search"
         },
@@ -9,8 +12,8 @@ export const locale = {
             Description: "Search our platform of registered users on Github, repositories and favorite projects of each user."
         },
         Results: {
-            Users: "Usuários",
-            Repos: "Repositórios"
+            Users: "Users",
+            Repos: "Repositories"
         },
         URLs: {
             Results: {

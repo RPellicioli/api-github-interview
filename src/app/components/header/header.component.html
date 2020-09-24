@@ -20,5 +20,14 @@
         <mat-slide-toggle [checked]="globalService.darkMode" (change)="onChangeDarkMode()">
             Dark mode
         </mat-slide-toggle>
-    </div>
+
+        <div class="translate-box">
+            <span class="translate-item" [ngClass]="{ 'active': langIsActive('en-US') }" (click)="setLanguage('en-US')" title="Inglês">
+                EN
+            </span>
+            <span class="translate-item" [ngClass]="{ 'active': langIsActive('pt-BR') }" (click)="setLanguage('pt-BR')" title="Português">
+                PT
+            </span>
+        </div>
+    </div>   
 </header>

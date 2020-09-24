@@ -1,9 +1,29 @@
-<ul class="list" [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
+<ul *ngIf="items && items.length > 0" class="list" [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
     <li *ngFor="let i of items">
-        <a href="">
-            <span>
-                {{ i.login ? i.login : i.name }}
-            </span>
+        <a [routerLink]="'/user/' + i.login" *ngIf="type == types.User">
+            <img class="image-user" [src]="i.avatar_url" [alt]="i.login" />
+
+            <div class="text">
+                <span class="name">
+                    {{ i.login }}
+                </span>
+            </div>
+        </a>
+
+        <a [routerLink]="'/repositories/' + i.id" *ngIf="type == types.Repository">
+            <div class="text">
+                <span class="name">
+                    {{ i.name }}
+                </span>
+
+                <span class="description">
+                    {{ i.description }}
+                </span>
+            </div>
         </a>
     </li>
 </ul>
+
+<div class="empty-message" *ngIf="!items || items.length === 0">
+    {{ 'General.EmptyMessage' | translate }}
+</div>

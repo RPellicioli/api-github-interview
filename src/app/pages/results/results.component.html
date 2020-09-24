@@ -5,7 +5,7 @@
                 {{ 'Results.Users' | translate }}
             </h3>
     
-            <list-items [items]="users"></list-items>
+            <list-items [items]="users" [type]="types.User"></list-items>
         </div>
     
         <div class="card" [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
@@ -13,7 +13,7 @@
                 {{ 'Results.Repos' | translate }}
             </h3>
     
-            <list-items [items]="repositories"></list-items>
+            <list-items [items]="repositories" [type]="types.Repository"></list-items>
         </div>
     </div>
 </section>

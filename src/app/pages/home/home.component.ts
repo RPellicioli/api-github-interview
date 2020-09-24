@@ -15,9 +15,6 @@ export class HomeComponent implements OnInit {
     ) { }
 
     public async ngOnInit(): Promise<void> {
-        debugger
         const user = await this.apiSearchService.getUsers("RPelli");
-
-        console.log(user);
     }
 }

@@ -1,6 +1,9 @@
 export const locale = {
     lang: 'es-PY',
     data: {
+        General: {
+            EmptyMessage: "Nenhuma informação encontrada."
+        },
         Header: {
             Search: "Buscar"
         },

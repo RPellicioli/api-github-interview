@@ -1,6 +1,9 @@
 export const locale = {
     lang: 'pt-BR',
     data: {
+        General: {
+            EmptyMessage: "Nenhuma informação encontrada."
+        },
         Header: {
             Search: "Buscar"
         },
