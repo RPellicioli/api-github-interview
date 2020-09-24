@@ -18,5 +18,13 @@
                 display: flex;
             }
         }
+
+        &.lighter-mode{
+            li{
+                a{
+                    color: $black;
+                }
+            }
+        }
     }
 }

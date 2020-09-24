@@ -1,8 +1,8 @@
-<ul class="list">
+<ul class="list" [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
     <li *ngFor="let i of items">
         <a href="">
             <span>
-                teste
+                {{ i.login ? i.login : i.name }}
             </span>
         </a>
     </li>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { GlobalService } from 'app/services/global.service';
 
 @Component({
     selector: 'list-items',
@@ -8,7 +9,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ListItemsComponent implements OnInit {
     @Input() public items: any[] = [];
 
-    constructor() { }
+    constructor(
+        public globalService: GlobalService
+    ) { }
 
     public ngOnInit(): void {
 
