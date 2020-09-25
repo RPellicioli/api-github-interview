@@ -20,6 +20,10 @@ export const locale = {
                 Description: "Resultado",
                 Url: "busca"
             },
+            User: {
+                Description: "Usuário",
+                Url: "usuario/:userName"
+            },
             Repos: {
                 Description: "Repositórios",
                 Url: "repositorios"

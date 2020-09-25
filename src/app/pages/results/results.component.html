@@ -5,7 +5,9 @@
                 {{ 'Results.Users' | translate }}
             </h3>
     
-            <list-items [items]="users" [type]="types.User"></list-items>
+            <list-items *ngIf="!loadingUsers" [items]="users" [type]="types.User"></list-items>
+
+            <loading *ngIf="loadingUsers"></loading>
         </div>
     
         <div class="card" [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
@@ -13,7 +15,9 @@
                 {{ 'Results.Repos' | translate }}
             </h3>
     
-            <list-items [items]="repositories" [type]="types.Repository"></list-items>
+            <list-items *ngIf="!loadingRepositories" [items]="repositories" [type]="types.Repository"></list-items>
+
+            <loading *ngIf="loadingRepositories"></loading>
         </div>
     </div>
 </section>

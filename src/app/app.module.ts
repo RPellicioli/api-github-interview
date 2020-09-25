@@ -44,20 +44,15 @@ const MY_DATE_FORMATS: MatDateFormats = {
 registerLocaleData(localePt, 'pt');
 
 export const commonRoutes: Routes = [
-    // <Route>{
-    //     matcher: CaseInsensitiveMatcher.matcher,
-    //     matcherPath: [ptBrUrls.Repos.Url, esPyUrls.Repos.Url, enUsUrls.Repos.Url],
-    //     loadChildren: () => import('./pages/repos/repos.module').then(m => m.ReposModule)
-    // },
-    <Route>{
-        matcher: CaseInsensitiveMatcher.matcher,
-        matcherPath: [ptBrUrls.Starred.Url, esPyUrls.Starred.Url, enUsUrls.Starred.Url],
-        loadChildren: () => import('./pages/starred/starred.module').then(m => m.StarredModule)
-    },
     <Route>{
         matcher: CaseInsensitiveMatcher.matcher,
         matcherPath: [ptBrUrls.Results.Url, esPyUrls.Results.Url, enUsUrls.Results.Url],
         loadChildren: () => import('./pages/results/results.module').then(m => m.ResultsModule)
+    },
+    <Route>{
+        matcher: CaseInsensitiveMatcher.matcher,
+        matcherPath: [ptBrUrls.User.Url, esPyUrls.User.Url, enUsUrls.User.Url],
+        loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule)
     },
     { path: '**', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) }
 ];

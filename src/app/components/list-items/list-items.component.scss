@@ -19,6 +19,7 @@
                 display: flex;
                 align-items: center;
                 transition: .3s ease;
+                cursor: pointer;
 
                 &:hover{
                     background: $dark-grey;
@@ -64,5 +65,11 @@
                 }
             }
         }
+    }
+
+    .empty-message{
+        margin-top: 24px;
+        font-size: 18px;
+        text-align: center;
     }
 }

@@ -1,45 +1,44 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute, Data, Params, RouterModule } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { ApiModule } from 'app/services/api/api.module';
 import { GlobalService } from 'app/services/global.service';
-import { SearchService } from 'app/services/search.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { ResultsComponent } from './results.component';
-import { ResultsModule } from './results.module';
+import { UserComponent } from './user.component';
+import { UserModule } from './user.module';
+import { ApiModule } from 'app/services/api/api.module';
 
-describe('ResultsComponent', () => {
-    let component: ResultsComponent;
-    let fixture: ComponentFixture<ResultsComponent>;
-
-
+describe('UserComponent', () => {
+    let component: UserComponent;
+    let fixture: ComponentFixture<UserComponent>;
+    
     beforeEach(async () => {
-        await TestBed.configureTestingModule({
+        TestBed.configureTestingModule({
             imports: [
-                ResultsModule,
+                UserModule,
+                RouterTestingModule,
                 ApiModule,
                 TranslateModule.forRoot()
             ],
             providers: [
                 GlobalService,
-                SearchService,
                 {
                     provide: ActivatedRoute,
                     useValue: {
-                        queryParams: {
+                        params: {
                             subscribe: (fn: (value: Params) => void) => fn({
-                                q: "teste",
+                                userName: "RPellicioli",
                             }),
                         }
                     }
                 }
             ]
         })
-            .compileComponents();
+        .compileComponents();
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(ResultsComponent);
+        fixture = TestBed.createComponent(UserComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

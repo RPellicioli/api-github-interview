@@ -16,7 +16,7 @@ export abstract class ApiBase {
             const url = this.buildURL(path);
 
             options = this.prepareOptions(options);
-
+            
             return this.httpClient.get<TResult>(url, options)
                 .subscribe(
                     result => resolve(result),
@@ -89,7 +89,10 @@ export abstract class ApiBase {
 
     protected buildHeader(auth: boolean = false): { [header: string]: string | string[] } {
         var headers: any = {
-            'Accept-Language': 'pt-BR'
+            'Accept-Language': 'pt-BR',
+            'X-RateLimit-Limit': 5000,
+            'X-RateLimit-Remaining': 4966,
+            'X-RateLimit-Reset': 1372700873
         };
 
         if (auth) {

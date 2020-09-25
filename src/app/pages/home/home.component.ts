@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiSearchService } from 'app/services/api/api-search.service';
-import { ApiUsersService } from 'app/services/api/api-users.service';
 
 @Component({
     selector: 'home',
@@ -9,12 +7,7 @@ import { ApiUsersService } from 'app/services/api/api-users.service';
 })
 export class HomeComponent implements OnInit {
 
-    constructor(
-        private apiUsersService: ApiUsersService,
-        private apiSearchService: ApiSearchService
-    ) { }
+    constructor() { }
 
-    public async ngOnInit(): Promise<void> {
-        const user = await this.apiSearchService.getUsers("RPelli");
-    }
+    public async ngOnInit(): Promise<void> {}
 }

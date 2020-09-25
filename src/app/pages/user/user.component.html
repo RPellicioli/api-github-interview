@@ -1,0 +1,38 @@
+<section class="user">
+    <div class="default-view-container">
+        <div class="details" *ngIf="user">
+            <img class="image-user" [src]="user?.avatar_url" [alt]="user?.login" />
+
+            <div class="infos">
+                <div class="wrap-info" *ngIf="user?.name">
+                    <mat-icon>account_box</mat-icon>
+                    <span>{{ user.name }}</span>
+                </div>
+
+                <div class="wrap-info" *ngIf="user?.location">
+                    <mat-icon>location_on</mat-icon>
+                    <span>{{ user.location }}</span>
+                </div>
+
+                <div class="wrap-info" *ngIf="user?.public_repos">
+                    <mat-icon>dns</mat-icon>
+                    <span>{{ user.public_repos }} {{ 'Results.Repos' | translate }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" *ngIf="user" [ngClass]="{ 'lighter-mode': !globalService.darkMode }">
+            <h3 class="title">
+                {{ 'Results.Repos' | translate }}
+            </h3>
+    
+            <list-items *ngIf="!loadingRepositories" [items]="repositories" [type]="types.Repository"></list-items>
+
+            <loading *ngIf="loadingRepositories"></loading>
+        </div>
+
+        <div class="empty-message" *ngIf="!user">
+            {{ 'General.EmptyMessage' | translate }}
+        </div>
+    </div>
+</section>

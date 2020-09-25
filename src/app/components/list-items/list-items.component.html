@@ -10,7 +10,7 @@
             </div>
         </a>
 
-        <a [routerLink]="'/repositories/' + i.id" *ngIf="type == types.Repository">
+        <a [href]="i.html_url" target="_blank" *ngIf="type == types.Repository">
             <div class="text">
                 <span class="name">
                     {{ i.name }}
