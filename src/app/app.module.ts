@@ -24,6 +24,7 @@ import { TranslationLoaderService } from './services/translation-loader.service'
 import { CultureService } from './services/culture.service';
 import { CaseInsensitiveMatcher } from './utils/case-insensitive-matcher';
 import { SearchService } from './services/search.service';
+import { AlertModule } from './components/alert/alert.module';
 
 const ptBrUrls = localePtBr.data.URLs,
     esPyUrls = localeEsPy.data.URLs,
@@ -84,6 +85,7 @@ export function appInitializer(seoService: SEOService, globalService: GlobalServ
         ApiModule,
         HeaderModule,
         MenuModule,
+        AlertModule,
         TranslateModule.forRoot(),
         RouterModule.forRoot(commonRoutes)
     ],

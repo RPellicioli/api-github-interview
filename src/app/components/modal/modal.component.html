@@ -1,0 +1,8 @@
+<div #closableTarget class="component-modal" (click)="outSideClick($event)">
+      <div class="component-modal-content {{contentClass}}" [ngStyle]="{ 'overflow': overflow }">
+            <div class="animated component-modal-content-inner">
+                  <ng-content></ng-content>
+                  <div class="close-btn" (click)="close()" *ngIf="closeButton"><span></span><span></span></div>
+            </div>
+      </div>
+</div>

@@ -7,10 +7,24 @@ export class SEOService {
 	private title: string;
 	private subTitle: string;
 
-	constructor (
+	constructor(
 		private titleService: Title,
 		private meta: Meta,
 		@Inject(DOCUMENT) private dom: Document) { }
+
+
+	public updateSEO(title?: string, description?: string, imageUrl?: string, url?: string, noIndex?: boolean): void {
+		this.removeNoIndexMetas();
+
+		if(title) this.setTitle(title);
+		if(description) this.setDescription(description);
+		if(imageUrl) this.setImage(imageUrl);
+		if(url) this.setUrl();
+
+		if (noIndex) {
+			this.addNoIndexMetas();
+		}
+	}
 
 	public setTitle(title: string): void {
 		this.title = title;
@@ -29,13 +43,13 @@ export class SEOService {
 
 	public setDescription(description: string): void {
 		const tags: Array<string> = ['description', 'og:description', 'twitter:description'];
-		
+
 		tags.forEach((tag) => { this.setMeta(tag, description); });
 	}
 
 	public setImage(imageUrl: string): void {
 		const tags: Array<string> = ['twitter:image', 'og:image'];
-		
+
 		tags.forEach((tag) => { this.setMeta(tag, imageUrl); });
 	}
 
@@ -43,7 +57,7 @@ export class SEOService {
 		const tags: Array<string> = ['twitter:url', 'og:url'];
 		//const routerUrl: string = this.router.url;
 		let completeUrl: string = url;
-		
+
 		// if(!completeUrl){
 		// 	completeUrl = `${this.URL}${routerUrl && routerUrl.length > 0 && routerUrl.charAt(0) === '/' ? routerUrl.substring(1, routerUrl.length) : routerUrl}`;
 		// }

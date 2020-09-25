@@ -1,0 +1,9 @@
+<modal #alertModal>
+      <div *ngIf="data" class="alert-modal">
+            <h1 class="title" *ngIf="data.title" [innerHTML]="data.title"></h1>
+            <p class="description" *ngIf="data.description" [innerHTML]="data.description"></p>
+            <div class="operations">
+                  <button type="button" class="btn btn-primary" *ngFor="let button of data.buttons; index as i" (click)="onOperationClick(i)">{{ button }}</button>
+            </div>
+      </div>
+</modal>

@@ -7,14 +7,16 @@ import { locale as localePtBr } from './i18n/pt-BR';
 import { locale as localeEnUs } from './i18n/en-US';
 import { locale as localeEsPy } from './i18n/es-PY';
 import { GlobalService } from './services/global.service';
+import { AlertService } from './components/alert/alert.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
     constructor(
+        private alertService: AlertService,
         public translationLoaderService: TranslationLoaderService,
         public translateService: TranslateService,
         public cultureService: CultureService,
@@ -26,21 +28,31 @@ export class AppComponent {
         translationLoaderService.loadTranslations(localePtBr, localeEnUs, localeEsPy);
 
         cultureService.onCultureChanged.subscribe((lang) => {
-              translateService.use(lang);
+            translateService.use(lang);
         });
+
+        try { // Override alert()
+            window.alert = this.alertMethod.bind(this);
+        } catch (ex) {
+            console.log(ex);
+        }
 
         router.events.subscribe((event: RouterEvent) => {
-              if (event instanceof NavigationError) {
-                    const err = "" + event.error;
+            if (event instanceof NavigationError) {
+                const err = "" + event.error;
 
-                    if (err.indexOf("Unexpected token '<'") > -1 ||
-                          err.indexOf("Error: Loading chunk") > -1) {
+                if (err.indexOf("Unexpected token '<'") > -1 ||
+                    err.indexOf("Error: Loading chunk") > -1) {
 
-                          console.log("Aerror - " + err + " -- " + event.url);
-                                
-                          window.location.href = window.location.origin + event.url;
-                    }
-              }
+                    console.log("Aerror - " + err + " -- " + event.url);
+
+                    window.location.href = window.location.origin + event.url;
+                }
+            }
         });
-      }
+    }
+
+    private alertMethod(message: string): void {
+        this.alertService.show(message);
+    }
 }
